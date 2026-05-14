@@ -28,7 +28,7 @@ const Home = (props) => {
         <section className="hero-wizard-section">
           <div className="hero-video-wrapper">
             <video
-              src="/hero-moving-service.mp4"
+              src="/hero-moving-service.mp4?v=m48928"
               loop
               muted
               autoPlay
@@ -748,12 +748,14 @@ const Home = (props) => {
             <div className="magnetic showcase-card">
               <div className="video-container">
                 <video
-                  src="https://videos.pexels.com/video-files/31645401/13482461_640_360_30fps.mp4"
-                  loop="true"
-                  muted="true"
-                  autoPlay="true"
-                  playsInline="true"
+                  src="/hero-moving-service.mp4?v=m48928"
+                  loop
+                  muted
+                  autoPlay
+                  playsInline
+                  preload="metadata"
                   className="showcase-video"
+                  aria-hidden="true"
                 ></video>
               </div>
               <div className="showcase-content">

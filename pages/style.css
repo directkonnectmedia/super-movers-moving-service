@@ -866,6 +866,8 @@ html {
   max-width: min(100%, 280px);
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 5;
 }
 
 .brand-logo-slot--hero .hero-floating-logo {
@@ -1406,18 +1408,22 @@ html {
   height: 100%;
   z-index: 2;
   position: absolute;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+  background: linear-gradient(135deg, rgba(0, 82, 255, 0.4) 0%, rgba(15, 23, 42, 0.7) 100%);
   pointer-events: none;
 }
  
 .hero-text-block {
   flex: 1;
   color: var(--color-surface);
+  position: relative;
+  z-index: 2;
 }
  
 .wizard-card-wrapper {
   flex: 1;
   max-width: 500px;
+  position: relative;
+  z-index: 2;
 }
 
 .home-hero-title {
@@ -1429,6 +1435,8 @@ html {
 .floating-truck-visual {
   margin-top: var(--spacing-3xl);
   animation: float 6s ease-in-out infinite;
+  position: relative;
+  z-index: 4;
 }
 
 .hero-floating-logo {
