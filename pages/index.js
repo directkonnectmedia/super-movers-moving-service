@@ -28,7 +28,7 @@ const Home = (props) => {
         <section className="hero-wizard-section">
           <div className="hero-video-wrapper">
             <video
-              src="/hero-moving-service.mp4?v=m48928"
+              src="https://videos.pexels.com/video-files/4246120/4246120-uhd_2560_1440_30fps.mp4"
               loop
               muted
               autoPlay

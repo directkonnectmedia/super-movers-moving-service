@@ -867,7 +867,7 @@ html {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  z-index: 5;
+  z-index: 12;
 }
 
 .brand-logo-slot--hero .hero-floating-logo {
@@ -1379,13 +1379,14 @@ html {
   height: 100%;
   z-index: 1;
   position: absolute;
+  isolation: isolate;
 }
  
 .hero-content-container {
   gap: var(--spacing-4xl);
   width: 100%;
   display: flex;
-  z-index: 3;
+  z-index: 10;
   position: relative;
   max-width: var(--content-max-width);
   align-items: center;
@@ -1408,35 +1409,48 @@ html {
   height: 100%;
   z-index: 2;
   position: absolute;
-  background: linear-gradient(135deg, rgba(0, 82, 255, 0.4) 0%, rgba(15, 23, 42, 0.7) 100%);
+  background: linear-gradient(135deg, rgba(0, 82, 255, 0.5) 0%, rgba(15, 23, 42, 0.8) 100%);
+  mix-blend-mode: multiply;
   pointer-events: none;
 }
  
 .hero-text-block {
   flex: 1;
-  color: var(--color-surface);
+  color: #ffffff;
   position: relative;
-  z-index: 2;
+  z-index: 10;
+}
+
+.hero-text-block .home-hero-title,
+.hero-text-block .hero-title,
+.hero-text-block .hero-subtitle {
+  color: #ffffff;
+}
+
+.hero-text-block .hero-subtitle {
+  opacity: 1;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.28);
 }
  
 .wizard-card-wrapper {
   flex: 1;
   max-width: 500px;
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 .home-hero-title {
   font-size: clamp(3rem, 6vw, 4.5rem);
   line-height: 1.1;
   margin-bottom: var(--spacing-lg);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .floating-truck-visual {
   margin-top: var(--spacing-3xl);
   animation: float 6s ease-in-out infinite;
   position: relative;
-  z-index: 4;
+  z-index: 11;
 }
 
 .hero-floating-logo {
