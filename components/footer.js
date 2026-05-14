@@ -57,35 +57,35 @@ const Footer = (props) => {
                 <nav className="footer-nav">
                   <ul className="footer-link-list">
                     <li>
-                      <a href="#">
+                      <a href="/">
                         <div className="footer-link">
                           <span>Home</span>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#superpower-section">
                         <div className="footer-link">
                           <span>Our Services</span>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#hero-quote-container">
                         <div className="footer-link">
                           <span>Quote Wizard</span>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#reviews-section">
                         <div className="footer-link">
                           <span>Success Stories</span>
                         </div>
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="#process-section">
                         <div className="footer-link">
                           <span>Moving Tips</span>
                         </div>

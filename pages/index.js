@@ -25,36 +25,6 @@ const Home = (props) => {
         </Head>
         <Navigation></Navigation>
         <section className="hero-wizard-section">
-          <nav id="navbarSuper" className="navbar-super">
-            <div className="navbar-container">
-              <div className="navbar-logo">
-                <svg
-                  fill="none"
-                  width="32"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="32"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="logo-icon"
-                >
-                  <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2m10 0H9m10 0h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
-                  <circle r="2" cx="17" cy="18"></circle>
-                  <circle r="2" cx="7" cy="18"></circle>
-                </svg>
-                <span className="logo-text">Super Movers</span>
-              </div>
-              <div className="navbar-actions">
-                <a href="#wizard">
-                  <div className="btn btn-sm btn-accent">
-                    <span>Get Quote</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </nav>
           <div className="hero-video-wrapper">
             <video
               src="https://videos.pexels.com/video-files/7464151/7464151-hd_1920_1080_30fps.mp4"
@@ -83,7 +53,7 @@ const Home = (props) => {
                 />
               </div>
             </div>
-            <div id="wizard" className="wizard-card-wrapper">
+            <div id="hero-quote-container" className="wizard-card-wrapper">
               <div className="wizard-container">
                 <div className="wizard-progress">
                   <div
@@ -376,7 +346,7 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section className="super-stats-section">
+        <section id="stats-section" className="super-stats-section">
           <div className="container-stats">
             <div className="stats-grid">
               <div className="magnetic stat-bubble">
@@ -470,7 +440,7 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section className="services-playful-section">
+        <section id="superpower-section" className="services-playful-section">
           <div className="services-header">
             <h2 className="section-title">Our Super Powers</h2>
             <p className="section-subtitle">
@@ -620,7 +590,7 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section className="process-preview-section">
+        <section id="process-section" className="process-preview-section">
           <div className="process-container">
             <h2 className="section-title">The Super 6-Step Path</h2>
             <div className="process-steps-row">
@@ -668,7 +638,7 @@ const Home = (props) => {
             </div>
           </div>
         </section>
-        <section className="testimonials-carousel-section">
+        <section id="reviews-section" className="testimonials-carousel-section">
           <div className="carousel-container">
             <h2 className="section-title">Happy Super Movers</h2>
             <div id="testimonialTrack" className="testimonial-track">
@@ -775,7 +745,7 @@ const Home = (props) => {
                 </p>
               </div>
               <div className="cta-actions">
-                <a href="#wizard">
+                <a href="#hero-quote-container">
                   <div className="btn btn-xl btn-accent pulse-animation">
                     <span>Book My Super Move</span>
                   </div>
@@ -807,16 +777,6 @@ box-shadow: 0 0 0 0 rgba(255, 214, 0, 0);}}
             <Script
               html={`<script defer data-name="super-movers-logic">
 (function(){
-  // Navbar Scroll Transition
-  const navbar = document.getElementById("navbarSuper")
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled")
-    } else {
-      navbar.classList.remove("scrolled")
-    }
-  })
-
   // Wizard Logic
   const wizardForm = document.getElementById("superMoveForm")
   const steps = document.querySelectorAll(".wizard-step")

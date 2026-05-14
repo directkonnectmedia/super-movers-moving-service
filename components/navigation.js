@@ -9,7 +9,7 @@ const Navigation = (props) => {
       <div className="navigation-container1">
         <nav id="navigation-root" className="navigation-root">
           <div className="navigation-container">
-            <a href="Homepage">
+            <a href="/">
               <div aria-label="Super Movers Home" className="navigation-brand">
                 <div className="navigation-logo-wrapper">
                   <svg
@@ -40,37 +40,37 @@ const Navigation = (props) => {
             <div className="navigation-desktop-menu">
               <ul className="navigation-links">
                 <li>
-                  <a href="Homepage">
+                  <a href="#superpower-section">
                     <div className="navigation-link">
                       <span>Services</span>
                     </div>
                   </a>
                 </li>
                 <li>
-                  <a href="Homepage">
+                  <a href="#hero-quote-container">
                     <div className="navigation-link">
                       <span>Pricing</span>
                     </div>
                   </a>
                 </li>
                 <li>
-                  <a href="Homepage">
+                  <a href="#stats-section">
                     <div className="navigation-link">
                       <span>Super Stats</span>
                     </div>
                   </a>
                 </li>
                 <li>
-                  <a href="Homepage">
+                  <a href="#reviews-section">
                     <div className="navigation-link">
                       <span>Reviews</span>
                     </div>
                   </a>
                 </li>
               </ul>
-              <a href="Homepage">
-                <div className="btn navigation-cta btn-lg btn-accent">
-                  <span>Book My Super Move</span>
+              <a href="#hero-quote-container">
+                <div className="btn navigation-cta navigation-cta-quote btn-lg btn-accent">
+                  <span>Get Quote</span>
                 </div>
               </a>
             </div>
@@ -101,7 +101,7 @@ const Navigation = (props) => {
         </nav>
         <div id="mobile-overlay" className="navigation-mobile-overlay">
           <div className="navigation-overlay-header">
-            <a href="Homepage">
+            <a href="/">
               <div aria-label="Super Movers Home" className="navigation-brand">
                 <div className="navigation-logo-wrapper">
                   <svg
@@ -155,28 +155,28 @@ const Navigation = (props) => {
           <div className="navigation-overlay-content">
             <ul className="navigation-mobile-links">
               <li>
-                <a href="Homepage">
+                <a href="#superpower-section">
                   <div className="navigation-mobile-link">
                     <span>Services</span>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="Homepage">
+                <a href="#hero-quote-container">
                   <div className="navigation-mobile-link">
                     <span>Pricing</span>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="Homepage">
+                <a href="#stats-section">
                   <div className="navigation-mobile-link">
                     <span>Super Stats</span>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="Homepage">
+                <a href="#reviews-section">
                   <div className="navigation-mobile-link">
                     <span>Reviews</span>
                   </div>
@@ -184,9 +184,9 @@ const Navigation = (props) => {
               </li>
             </ul>
             <div className="navigation-mobile-actions">
-              <a href="Homepage">
-                <div className="btn btn-xl navigation-mobile-cta btn-accent">
-                  <span>Book My Super Move</span>
+              <a href="#hero-quote-container">
+                <div className="btn btn-xl navigation-mobile-cta navigation-cta-quote btn-accent">
+                  <span>Get Quote</span>
                 </div>
               </a>
             </div>
@@ -197,7 +197,7 @@ const Navigation = (props) => {
             <Script
               html={`<style>
 @media (prefers-reduced-motion: reduce) {
-.navigation-root, .navigation-mobile-overlay, .navigation-mobile-link, .navigation-cta {
+.navigation-root, .navigation-mobile-overlay, .navigation-mobile-link, .navigation-cta, .navigation-cta-quote {
   transition: none !important;
   animation: none !important;
   transform: none !important;
@@ -245,6 +245,10 @@ const Navigation = (props) => {
 
   mobileLinks.forEach((link) => {
     link.addEventListener("click", closeMobileMenu)
+  })
+
+  mobileOverlay.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener("click", closeMobileMenu)
   })
 
   document.addEventListener("keydown", (e) => {
