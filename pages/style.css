@@ -16,6 +16,7 @@
   --font-size-xl: clamp(1.25rem, 1.35rem, 1.5rem);
   --font-size-xs: clamp(0.75rem, 0.8rem, 0.85rem);
   --super-yellow: #ffd600;
+  --solar-orange: #f97316;
   --color-neutral: #cbd5e1;
   --color-outline: #7dd3fc;
   --color-overlay: color-mix(in oklab, #000000 40%, transparent);
@@ -998,14 +999,28 @@ html {
   width: 100%;
 }
  
+.navigation-cta.nav-solar-quote,
+.navigation-mobile-cta.nav-solar-quote {
+  color: var(--color-on-accent);
+  border-color: var(--solar-orange);
+  background-color: var(--solar-orange);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--solar-orange) 35%, transparent);
+}
+
+.navigation-cta.nav-solar-quote:hover:not(:disabled),
+.navigation-mobile-cta.nav-solar-quote:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--solar-orange) 88%, #000);
+  background-color: color-mix(in srgb, var(--solar-orange) 88%, #000);
+}
+
 .navigation-cta-quote:hover:not(:disabled) {
   animation: navigation-quote-hover-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 8px 25px color-mix(in oklab, var(--color-accent) 50%, transparent) !important;
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--solar-orange) 45%, transparent) !important;
 }
 
 .navigation-mobile-cta.navigation-cta-quote:hover:not(:disabled) {
   animation: navigation-quote-hover-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 8px 25px color-mix(in oklab, var(--color-accent) 50%, transparent) !important;
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--solar-orange) 45%, transparent) !important;
 }
  
 .navigation-mobile-overlay.is-active {
@@ -1040,7 +1055,7 @@ html {
   color: var(--footer-fg);
   overflow: hidden;
   position: relative;
-  border-top: 8px solid var(--color-accent);
+  border-top: 8px solid var(--solar-orange);
   padding-top: var(--spacing-4xl);
   padding-bottom: var(--spacing-2xl);
   background-color: var(--theme-sky);
@@ -1082,8 +1097,11 @@ html {
 }
  
 .footer-copyright {
-  opacity: 0.7;
+  color: var(--solar-orange);
+  opacity: 1;
   font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-shadow: 0 1px 1px color-mix(in srgb, #0f172a 28%, transparent);
 }
  
 .footer-legal-links {
@@ -1137,10 +1155,12 @@ html {
 }
  
 .footer-link-sm {
-  color: var(--footer-fg);
-  opacity: 0.7;
+  color: var(--solar-orange);
+  opacity: 1;
   font-size: var(--font-size-sm);
-  transition: opacity 0.3s ease;
+  font-weight: 600;
+  text-shadow: 0 1px 1px color-mix(in srgb, #0f172a 24%, transparent);
+  transition: opacity 0.3s ease, color 0.2s ease;
   text-decoration: none;
 }
  
@@ -1260,6 +1280,7 @@ html {
 }
  
 .footer-link-sm:hover {
+  color: color-mix(in srgb, var(--solar-orange) 70%, var(--footer-fg));
   opacity: 1;
   text-decoration: underline;
 }
@@ -1344,6 +1365,57 @@ html {
   min-height: 500px;
   border-radius: var(--border-radius-xl);
   flex-direction: column;
+}
+
+/* Quote wizard: Solar Orange focus + button/option text; icons stay cobalt */
+#hero-quote-container .btn:focus-visible,
+#hero-quote-container input:focus-visible,
+#hero-quote-container textarea:focus-visible {
+  outline: 2px solid var(--solar-orange);
+  outline-offset: 2px;
+}
+
+#hero-quote-container .btn-primary {
+  color: var(--solar-orange);
+}
+
+#hero-quote-container .btn-outline {
+  color: var(--solar-orange);
+}
+
+#hero-quote-container .btn-outline:hover:not(:disabled) {
+  color: var(--color-on-primary);
+}
+
+#hero-quote-container .btn-link {
+  color: var(--solar-orange);
+}
+
+#hero-quote-container .btn-link:hover:not(:disabled) {
+  color: color-mix(in srgb, var(--solar-orange) 72%, #0f172a);
+}
+
+#hero-quote-container .btn-accent {
+  color: var(--solar-orange);
+  background-color: var(--color-surface);
+  border: 2px solid var(--solar-orange);
+}
+
+#hero-quote-container .btn-accent:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--solar-orange) 82%, #000);
+  background-color: color-mix(in srgb, var(--solar-orange) 14%, var(--color-surface));
+}
+
+#hero-quote-container .bubble-option:not(:has(input:checked)) {
+  color: var(--solar-orange);
+}
+
+#hero-quote-container .move-option-card label > div[class*="home-thq-move-option-content"] span {
+  color: var(--solar-orange);
+}
+
+#hero-quote-container .move-option-card label > div[class*="home-thq-move-option-content"] svg {
+  color: var(--electric-cobalt);
 }
  
 
@@ -1479,7 +1551,7 @@ html {
  
 .super-stats-section {
   padding: var(--spacing-4xl) 0;
-  background: var(--color-surface);
+  background: var(--theme-sky);
 }
  
 .container-stats {
