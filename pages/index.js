@@ -28,7 +28,7 @@ const Home = (props) => {
         <section className="hero-wizard-section">
           <div className="hero-video-wrapper">
             <video
-              src="https://player.vimeo.com/external/371434631.hd.mp4?s=73f3246f452e6d6349940c6c738e404b04c8686e&profile_id=175"
+              src="https://videos.pexels.com/video-files/4246014/4246014-uhd_2560_1440_30fps.mp4"
               loop
               muted
               autoPlay
@@ -814,29 +814,6 @@ box-shadow: 0 0 0 0 rgba(255, 214, 0, 0);}}
 (function(){
   // Wizard Logic
   const wizardForm = document.getElementById("superMoveForm")
-  const HERO_MP4_DEFAULT =
-    "https://player.vimeo.com/external/371434631.hd.mp4?s=73f3246f452e6d6349940c6c738e404b04c8686e&profile_id=175"
-  const HERO_MP4_SPECIALIZED =
-    "https://player.vimeo.com/external/494341904.hd.mp4?s=d76c79e602e1c390234032c53084a44f4759a24d&profile_id=174"
-  const heroBgVideo = document.querySelector(".hero-bg-video")
-  function syncHeroBgVideo() {
-    if (!heroBgVideo || !wizardForm) return
-    var picked = wizardForm.querySelector('input[name="moveType"]:checked')
-    var next =
-      picked && picked.value === "specialized" ? HERO_MP4_SPECIALIZED : HERO_MP4_DEFAULT
-    var cur = heroBgVideo.getAttribute("src") || ""
-    if (cur === next) return
-    heroBgVideo.setAttribute("src", next)
-    heroBgVideo.load()
-    var p = heroBgVideo.play()
-    if (p && p.catch) p.catch(function () {})
-  }
-  if (wizardForm) {
-    wizardForm.querySelectorAll('input[name="moveType"]').forEach(function (r) {
-      r.addEventListener("change", syncHeroBgVideo)
-    })
-  }
-  syncHeroBgVideo()
   const steps = document.querySelectorAll(".wizard-step")
   const progressBar = document.getElementById("wizardProgress")
   let currentStep = 1
