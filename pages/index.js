@@ -28,15 +28,16 @@ const Home = (props) => {
         <section className="hero-wizard-section">
           <div className="hero-video-wrapper">
             <video
-              src="https://assets.mixkit.co/videos/15853/15853-720.mp4"
-              loop="true"
-              muted="true"
-              autoPlay="true"
-              playsInline="true"
+              src="https://player.vimeo.com/external/371434631.hd.mp4?s=73f3246f452e6d6349940c6c738e404b04c8686e&profile_id=175"
+              loop
+              muted
+              autoPlay
+              playsInline
+              preload="metadata"
               className="hero-bg-video"
               aria-hidden="true"
             ></video>
-            <div className="hero-overlay-scrim"></div>
+            <div className="hero-overlay"></div>
           </div>
           <div className="hero-content-container">
             <div className="hero-text-block">
@@ -140,6 +141,33 @@ const Home = (props) => {
                             <path d="M16 14h.01"></path>
                           </svg>
                           <span>Office Move</span>
+                        </div>
+                      </label>
+                      <label className="move-option-card">
+                        <input
+                          type="radio"
+                          id="thq_movetype_specialized"
+                          name="moveType"
+                          value="specialized"
+                          data-form-field-id="thq_movetype_specialized"
+                        />
+                        <div className="home-thq-move-option-content-elm3">
+                          <svg
+                            fill="none"
+                            width="32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="32"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                            <path d="M8 21h8"></path>
+                            <path d="M12 19v2"></path>
+                          </svg>
+                          <span>Specialized Services</span>
                         </div>
                       </label>
                     </div>
@@ -786,6 +814,29 @@ box-shadow: 0 0 0 0 rgba(255, 214, 0, 0);}}
 (function(){
   // Wizard Logic
   const wizardForm = document.getElementById("superMoveForm")
+  const HERO_MP4_DEFAULT =
+    "https://player.vimeo.com/external/371434631.hd.mp4?s=73f3246f452e6d6349940c6c738e404b04c8686e&profile_id=175"
+  const HERO_MP4_SPECIALIZED =
+    "https://player.vimeo.com/external/494341904.hd.mp4?s=d76c79e602e1c390234032c53084a44f4759a24d&profile_id=174"
+  const heroBgVideo = document.querySelector(".hero-bg-video")
+  function syncHeroBgVideo() {
+    if (!heroBgVideo || !wizardForm) return
+    var picked = wizardForm.querySelector('input[name="moveType"]:checked')
+    var next =
+      picked && picked.value === "specialized" ? HERO_MP4_SPECIALIZED : HERO_MP4_DEFAULT
+    var cur = heroBgVideo.getAttribute("src") || ""
+    if (cur === next) return
+    heroBgVideo.setAttribute("src", next)
+    heroBgVideo.load()
+    var p = heroBgVideo.play()
+    if (p && p.catch) p.catch(function () {})
+  }
+  if (wizardForm) {
+    wizardForm.querySelectorAll('input[name="moveType"]').forEach(function (r) {
+      r.addEventListener("change", syncHeroBgVideo)
+    })
+  }
+  syncHeroBgVideo()
   const steps = document.querySelectorAll(".wizard-step")
   const progressBar = document.getElementById("wizardProgress")
   let currentStep = 1
@@ -905,6 +956,13 @@ box-shadow: 0 0 0 0 rgba(255, 214, 0, 0);}}
             flex-direction: column;
           }
           .home-thq-move-option-content-elm2 {
+            gap: var(--spacing-sm);
+            color: var(--electric-cobalt);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+          }
+          .home-thq-move-option-content-elm3 {
             gap: var(--spacing-sm);
             color: var(--electric-cobalt);
             display: flex;
