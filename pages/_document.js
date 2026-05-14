@@ -6,6 +6,12 @@ class CustomDocument extends Document {
         <Head>
           <meta charSet="utf-8"></meta>
           <meta property="twitter:card" content="summary_large_image"></meta>
+          <link
+            rel="icon"
+            href="/logo-super-movers-final.png"
+            type="image/png"
+          />
+          <link rel="apple-touch-icon" href="/logo-super-movers-final.png" />
           <style
             dangerouslySetInnerHTML={{
               __html:

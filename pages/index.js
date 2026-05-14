@@ -13,6 +13,8 @@ const Home = (props) => {
         <Head>
           <title>Super Movers</title>
           <meta property="og:title" content="Super Movers" />
+          <link rel="icon" href="/logo-super-movers-final.png" type="image/png" />
+          <link rel="apple-touch-icon" href="/logo-super-movers-final.png" />
           <link
             rel="canonical"
             href="https://pink-feminine-louse-4bqc9w.teleporthq.site/"
@@ -46,9 +48,9 @@ const Home = (props) => {
                 that feels effortless.
               </p>
               <div className="floating-truck-visual">
-                <div className="logo-wrapper logo-wrapper--hero">
+                <div className="brand-logo-slot brand-logo-slot--hero">
                   <img
-                    src="/super-movers-badge.png"
+                    src="/logo-super-movers-final.png"
                     alt=""
                     className="hero-floating-logo"
                     width={560}

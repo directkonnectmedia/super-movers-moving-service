@@ -8,9 +8,9 @@ const Footer = (props) => {
       <div className="footer-container1">
         <footer className="footer-root">
           <div className="footer-logo-hero">
-            <div className="logo-wrapper logo-wrapper--footer">
+            <div className="brand-logo-slot brand-logo-slot--footer">
               <img
-                src="/super-movers-badge.png"
+                src="/logo-super-movers-final.png"
                 alt=""
                 className="footer-mark-logo"
                 width={360}

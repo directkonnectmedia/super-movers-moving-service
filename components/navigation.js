@@ -8,7 +8,7 @@ import {
   useReducedMotion,
 } from 'framer-motion'
 
-const BADGE_SRC = '/super-movers-badge.png'
+const LOGO_SRC = '/logo-super-movers-final.png'
 
 const Navigation = () => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -18,8 +18,8 @@ const Navigation = () => {
   const { scrollY } = useScroll()
 
   const navHeightMv = useTransform(scrollY, [0, 50], [90, 70])
-  const logoHeightMv = useTransform(scrollY, [0, 50], [110, 60])
-  const logoPullMv = useTransform(scrollY, [0, 50], [-16, 0])
+  const logoHeightMv = useTransform(scrollY, [0, 50], [100, 55])
+  const logoPullMv = useTransform(scrollY, [0, 50], [-14, 0])
 
   useMotionValueEvent(scrollY, 'change', (y) => {
     setScrolledPast(y > 50)
@@ -65,13 +65,13 @@ const Navigation = () => {
     : navHeightMv
   const logoHeight = prefersReducedMotion
     ? scrolledPast
-      ? 60
-      : 110
+      ? 55
+      : 100
     : logoHeightMv
   const logoPull = prefersReducedMotion
     ? scrolledPast
       ? 0
-      : -16
+      : -14
     : logoPullMv
 
   return (
@@ -86,12 +86,12 @@ const Navigation = () => {
             <a href="/" className="navigation-home-link" aria-label="Super Movers Home">
               <span className="navigation-brand navigation-brand--mark">
                 <motion.div
-                  className="logo-wrapper logo-wrapper--nav"
+                  className="brand-logo-slot brand-logo-slot--nav"
                   style={{ marginBottom: logoPull }}
                 >
                   <motion.img
                     className="navigation-brand-logo"
-                    src={BADGE_SRC}
+                    src={LOGO_SRC}
                     alt=""
                     width={200}
                     height={140}
@@ -177,10 +177,10 @@ const Navigation = () => {
               onClick={() => setMenuOpen(false)}
             >
               <span className="navigation-brand navigation-brand--mark">
-                <div className="logo-wrapper logo-wrapper--overlay">
+                <div className="brand-logo-slot brand-logo-slot--overlay">
                   <img
                     className="navigation-overlay-brand-logo"
-                    src={BADGE_SRC}
+                    src={LOGO_SRC}
                     alt=""
                     width={160}
                     height={140}

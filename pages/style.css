@@ -9,14 +9,14 @@
   --spacing-2xl: 2rem;
   --spacing-3xl: 3rem;
   --spacing-4xl: 4rem;
-  --color-accent: #ffd600;
+  --vibrant-mandarin: #ff9f43;
+  --color-accent: var(--vibrant-mandarin);
   --color-border: #cbd5e1;
   --font-size-lg: clamp(1.125rem, 1.15rem, 1.25rem);
   --font-size-sm: clamp(0.9rem, 0.95rem, 1rem);
   --font-size-xl: clamp(1.25rem, 1.35rem, 1.5rem);
   --font-size-xs: clamp(0.75rem, 0.8rem, 0.85rem);
-  --super-yellow: #ffd600;
-  --vibrant-mandarin: #ff9f43;
+  --super-yellow: var(--vibrant-mandarin);
   --color-neutral: #cbd5e1;
   --color-outline: #7dd3fc;
   --color-overlay: color-mix(in oklab, #000000 40%, transparent);
@@ -833,62 +833,34 @@ html {
   padding: 0;
 }
 
-/* Badge PNG in-fill: white only where art is transparent — no outer square plate */
-.logo-wrapper {
-  position: relative;
+/* Brand logo shells: transparent only (artwork carries #F0F4F8 fill in PNG) */
+.brand-logo-slot {
   display: inline-block;
   line-height: 0;
   vertical-align: top;
-  isolation: isolate;
   flex-shrink: 0;
+  background: transparent;
 }
 
-.logo-wrapper img {
+.brand-logo-slot img {
   display: block;
-  position: relative;
-  z-index: 1;
-  filter:
-    drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))
-    drop-shadow(0 0 1px rgb(255, 255, 255))
-    drop-shadow(0 0 1px rgb(255, 255, 255));
 }
 
-.logo-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  background: #ffffff;
-  z-index: -1;
-  clip-path: circle(45% at 50% 35%);
-}
-
-.logo-wrapper::after {
-  content: "";
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 42%;
-  bottom: 8%;
-  background: #ffffff;
-  z-index: -1;
-  clip-path: polygon(11% 0%, 89% 0%, 72% 100%, 28% 100%);
-}
-
-.logo-wrapper--footer {
+.brand-logo-slot--footer {
   display: block;
-  width: 180px;
-  max-width: 180px;
+  width: 200px;
+  max-width: 200px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.logo-wrapper--footer .footer-mark-logo {
+.brand-logo-slot--footer .footer-mark-logo {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
 }
 
-.logo-wrapper--hero {
+.brand-logo-slot--hero {
   display: block;
   width: fit-content;
   max-width: min(100%, 280px);
@@ -896,17 +868,18 @@ html {
   margin-right: auto;
 }
 
-.logo-wrapper--hero .hero-floating-logo {
+.brand-logo-slot--hero .hero-floating-logo {
   width: min(100%, 280px);
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
 }
 
 .navigation-brand-logo {
   display: block;
   width: auto;
-  height: 110px;
+  height: 100px;
   max-width: min(260px, 44vw);
   object-fit: contain;
   object-position: left center;
@@ -915,7 +888,7 @@ html {
 .navigation-overlay-brand-logo {
   display: block;
   width: auto;
-  height: 72px;
+  height: 65px;
   max-width: min(200px, 50vw);
   object-fit: contain;
 }
@@ -1473,7 +1446,7 @@ html {
 #hero-quote-container .btn:focus-visible,
 #hero-quote-container input:focus-visible,
 #hero-quote-container textarea:focus-visible {
-  outline: 2px solid #ff9f43;
+  outline: 2px solid var(--vibrant-mandarin);
   outline-offset: 2px;
 }
 
@@ -1541,7 +1514,7 @@ html {
 }
 
 #hero-quote-container .move-option-card > div[class*="home-thq-move-option-content"] svg {
-  color: #0052ff;
+  color: var(--super-blue);
 }
 
 #hero-quote-container .move-option-card:has(input:checked) {
