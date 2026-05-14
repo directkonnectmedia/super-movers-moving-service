@@ -12,7 +12,7 @@
   --color-accent: #ffd600;
   --color-border: #cbd5e1;
   --font-size-lg: clamp(1.125rem, 1.15rem, 1.25rem);
-  --font-size-sm: clamp(0 ninerem, 0.95rem, 1rem);
+  --font-size-sm: clamp(0.9rem, 0.95rem, 1rem);
   --font-size-xl: clamp(1.25rem, 1.35rem, 1.5rem);
   --font-size-xs: clamp(0.75rem, 0.8rem, 0.85rem);
   --super-yellow: #ffd600;
@@ -20,6 +20,8 @@
   --color-neutral: #cbd5e1;
   --color-outline: #7dd3fc;
   --color-overlay: color-mix(in oklab, #000000 40%, transparent);
+  --brand-navy: #0f172a;
+  --super-blue: #0052ff;
   --color-primary: #0052ff;
   --color-surface: #f8fafc;
   --divider-value: 2px solid var(--color-border);
@@ -790,15 +792,18 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  padding: var(--spacing-md) 0;
+  padding: 0;
   z-index: 50;
+  overflow: visible;
   position: fixed;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: transparent;
+  transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
 }
  
 .navigation-container {
   gap: var(--spacing-2xl);
   margin: 0 auto;
+  height: 100%;
   display: flex;
   padding: 0 var(--spacing-xl);
   max-width: var(--content-max-width);
@@ -822,22 +827,26 @@ html {
 .navigation-brand--mark {
   display: block;
   line-height: 0;
-  padding: 6px 8px 14px;
+  padding: 0;
 }
 
 .navigation-brand-logo {
   display: block;
-  height: 80px;
   width: auto;
-  max-width: min(280px, 46vw);
+  height: 110px;
+  max-width: min(260px, 44vw);
   object-fit: contain;
   object-position: left center;
-  transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
-
-.navigation-root.is-scrolled .navigation-brand-logo,
-html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
-  height: 50px;
+ 
+.navigation-overlay-brand-logo {
+  display: block;
+  width: auto;
+  height: 72px;
+  max-width: min(200px, 50vw);
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
  
 .navigation-desktop-menu {
@@ -968,7 +977,7 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
 }
 
 .navigation-root.is-scrolled {
-  padding: var(--spacing-sm) 0;
+  padding: 0;
   background: color-mix(in srgb, var(--theme-sky) 92%, transparent);
   box-shadow: 0 8px 28px color-mix(in srgb, var(--color-on-surface) 12%, transparent);
   backdrop-filter: blur(20px);
@@ -1048,14 +1057,23 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
 .navigation-mobile-overlay.is-active .navigation-mobile-link:nth-child(4) {
   transition-delay: 0.4s;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-mobile-overlay .navigation-mobile-link,
+  .navigation-cta,
+  .navigation-cta-quote {
+    transition: none !important;
+    animation: none !important;
+  }
+}
  
 .footer-root {
-  --footer-fg: #0f172a;
-  --footer-fg-muted: color-mix(in srgb, #0f172a 72%, transparent);
+  --footer-fg: var(--brand-navy);
+  --footer-fg-muted: color-mix(in srgb, var(--brand-navy) 78%, transparent);
   color: var(--footer-fg);
   overflow: hidden;
   position: relative;
-  border-top: 8px solid #ff9f43;
+  border-top: 8px solid var(--vibrant-mandarin);
   padding-top: var(--spacing-4xl);
   padding-bottom: var(--spacing-2xl);
   background-color: var(--theme-sky);
@@ -1097,8 +1115,8 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
 }
  
 .footer-copyright {
-  color: #ffffff;
-  opacity: 1;
+  color: var(--brand-navy);
+  opacity: 0.92;
   font-size: var(--font-size-sm);
   font-weight: 600;
 }
@@ -1117,9 +1135,12 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
 }
 
 .footer-mark-logo {
-  height: 120px;
-  width: auto;
-  max-width: min(100%, 520px);
+  width: 180px;
+  max-width: 180px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   object-fit: contain;
 }
  
@@ -1162,7 +1183,7 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
 }
  
 .footer-link-sm {
-  color: #ffffff;
+  color: color-mix(in srgb, var(--brand-navy) 92%, transparent);
   opacity: 1;
   font-size: var(--font-size-sm);
   font-weight: 600;
@@ -1230,7 +1251,8 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
 }
  
 .footer-stat-label {
-  opacity: 0.8;
+  color: color-mix(in srgb, var(--brand-navy) 76%, transparent);
+  opacity: 1;
   font-size: var(--font-size-xs);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1278,7 +1300,7 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
 }
  
 .footer-link-sm:hover {
-  color: color-mix(in srgb, #ffffff 88%, var(--theme-sky));
+  color: var(--electric-cobalt);
   opacity: 1;
   text-decoration: underline;
 }
@@ -1291,7 +1313,7 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
  
 .hero-wizard-section {
   display: flex;
-  padding: var(--spacing-4xl) var(--spacing-xl);
+  padding: calc(var(--spacing-4xl) + 28px) var(--spacing-xl) var(--spacing-4xl);
   overflow: hidden;
   position: relative;
   min-height: 100vh;
@@ -1360,13 +1382,13 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
   border-radius: 0;
   box-shadow: none;
   display: block;
-  width: min(100%, 440px);
+  width: min(100%, 280px);
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  max-height: min(48vh, 380px);
+  max-height: min(52vh, 440px);
   object-fit: contain;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .wizard-container {
@@ -1989,7 +2011,7 @@ html.nav-scrolled .navigation-mobile-overlay .navigation-brand-logo {
     width: 100%;
   }
   .navigation-root {
-    padding: var(--spacing-sm) 0;
+    padding: 0;
   }
   .navigation-desktop-menu {
     display: none;

@@ -1,23 +1,101 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import Script from 'dangerous-html/react'
-import { useTranslations } from 'next-intl'
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+  useReducedMotion,
+} from 'framer-motion'
 
-const Navigation = (props) => {
+const BADGE_SRC = '/super-movers-badge.png'
+
+const Navigation = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolledPast, setScrolledPast] = useState(false)
+  const prefersReducedMotion = useReducedMotion() === true
+
+  const { scrollY } = useScroll()
+
+  const navHeightMv = useTransform(scrollY, [0, 50], [90, 70])
+  const logoHeightMv = useTransform(scrollY, [0, 50], [110, 60])
+  const logoPullMv = useTransform(scrollY, [0, 50], [-16, 0])
+
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    setScrolledPast(y > 50)
+  })
+
+  useEffect(() => {
+    setScrolledPast(typeof window !== 'undefined' && window.scrollY > 50)
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('nav-scrolled', scrolledPast)
+    return () => document.documentElement.classList.remove('nav-scrolled')
+  }, [scrolledPast])
+
+  useEffect(() => {
+    const body = document.body
+    const root = document.documentElement
+    if (menuOpen) {
+      body.style.overflow = 'hidden'
+      root.style.overflow = 'hidden'
+    } else {
+      body.style.overflow = ''
+      root.style.overflow = ''
+    }
+    return () => {
+      body.style.overflow = ''
+      root.style.overflow = ''
+    }
+  }, [menuOpen])
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  const navHeight = prefersReducedMotion
+    ? scrolledPast
+      ? 70
+      : 90
+    : navHeightMv
+  const logoHeight = prefersReducedMotion
+    ? scrolledPast
+      ? 60
+      : 110
+    : logoHeightMv
+  const logoPull = prefersReducedMotion
+    ? scrolledPast
+      ? 0
+      : -16
+    : logoPullMv
+
   return (
     <>
       <div className="navigation-container1">
-        <nav id="navigation-root" className="navigation-root">
+        <motion.nav
+          id="navigation-root"
+          className={`navigation-root ${scrolledPast ? 'is-scrolled' : ''}`}
+          style={{ height: navHeight }}
+        >
           <div className="navigation-container">
             <a href="/" className="navigation-home-link" aria-label="Super Movers Home">
               <span className="navigation-brand navigation-brand--mark">
-                <img
+                <motion.img
                   className="navigation-brand-logo"
-                  src="/super-movers-logo.png"
+                  src={BADGE_SRC}
                   alt=""
-                  width={320}
-                  height={80}
+                  width={200}
+                  height={140}
                   decoding="async"
+                  style={{
+                    height: logoHeight,
+                    marginBottom: logoPull,
+                  }}
                 />
               </span>
             </a>
@@ -59,10 +137,12 @@ const Navigation = (props) => {
               </a>
             </div>
             <button
+              type="button"
               id="mobile-toggle"
               aria-label="Toggle navigation"
-              aria-expanded="false"
+              aria-expanded={menuOpen}
               className="navigation-mobile-toggle"
+              onClick={() => setMenuOpen(true)}
             >
               <svg
                 width="32"
@@ -82,25 +162,35 @@ const Navigation = (props) => {
               </svg>
             </button>
           </div>
-        </nav>
-        <div id="mobile-overlay" className="navigation-mobile-overlay">
+        </motion.nav>
+        <div
+          id="mobile-overlay"
+          className={`navigation-mobile-overlay ${menuOpen ? 'is-active' : ''}`}
+        >
           <div className="navigation-overlay-header">
-            <a href="/" className="navigation-home-link" aria-label="Super Movers Home">
+            <a
+              href="/"
+              className="navigation-home-link"
+              aria-label="Super Movers Home"
+              onClick={() => setMenuOpen(false)}
+            >
               <span className="navigation-brand navigation-brand--mark">
                 <img
-                  className="navigation-brand-logo"
-                  src="/super-movers-logo.png"
+                  className="navigation-overlay-brand-logo"
+                  src={BADGE_SRC}
                   alt=""
-                  width={320}
-                  height={80}
+                  width={160}
+                  height={140}
                   decoding="async"
                 />
               </span>
             </a>
             <button
+              type="button"
               id="mobile-close"
               aria-label="Close navigation"
               className="navigation-mobile-close"
+              onClick={() => setMenuOpen(false)}
             >
               <svg
                 width="32"
@@ -123,28 +213,28 @@ const Navigation = (props) => {
           <div className="navigation-overlay-content">
             <ul className="navigation-mobile-links">
               <li>
-                <a href="#superpower-section">
+                <a href="#superpower-section" onClick={() => setMenuOpen(false)}>
                   <div className="navigation-mobile-link">
                     <span>Services</span>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="#hero-quote-container">
+                <a href="#hero-quote-container" onClick={() => setMenuOpen(false)}>
                   <div className="navigation-mobile-link">
                     <span>Pricing</span>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="#stats-section">
+                <a href="#stats-section" onClick={() => setMenuOpen(false)}>
                   <div className="navigation-mobile-link">
                     <span>Super Stats</span>
                   </div>
                 </a>
               </li>
               <li>
-                <a href="#reviews-section">
+                <a href="#reviews-section" onClick={() => setMenuOpen(false)}>
                   <div className="navigation-mobile-link">
                     <span>Reviews</span>
                   </div>
@@ -152,7 +242,7 @@ const Navigation = (props) => {
               </li>
             </ul>
             <div className="navigation-mobile-actions">
-              <a href="#hero-quote-container">
+              <a href="#hero-quote-container" onClick={() => setMenuOpen(false)}>
                 <div className="btn btn-xl navigation-mobile-cta navigation-cta-quote nav-mandarin-quote">
                   <span>Get Quote</span>
                 </div>
@@ -160,95 +250,10 @@ const Navigation = (props) => {
             </div>
           </div>
         </div>
-        <div className="navigation-container2">
-          <div className="navigation-container3">
-            <Script
-              html={`<style>
-@media (prefers-reduced-motion: reduce) {
-.navigation-root, .navigation-mobile-overlay, .navigation-mobile-link, .navigation-cta, .navigation-cta-quote, .navigation-brand-logo {
-  transition: none !important;
-  animation: none !important;
-  transform: none !important;
-}
-}
-</style>`}
-            ></Script>
-          </div>
-        </div>
-        <div className="navigation-container4">
-          <div className="navigation-container5">
-            <Script
-              html={`<script defer data-name="navigation-logic">
-(function(){
-  const navRoot = document.getElementById("navigation-root")
-  const mobileToggle = document.getElementById("mobile-toggle")
-  const mobileClose = document.getElementById("mobile-close")
-  const mobileOverlay = document.getElementById("mobile-overlay")
-  const mobileLinks = document.querySelectorAll(".navigation-mobile-link")
-
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      navRoot.classList.add("is-scrolled")
-      document.documentElement.classList.add("nav-scrolled")
-    } else {
-      navRoot.classList.remove("is-scrolled")
-      document.documentElement.classList.remove("nav-scrolled")
-    }
-  }
-
-  const openMobileMenu = () => {
-    mobileOverlay.classList.add("is-active")
-    mobileToggle.setAttribute("aria-expanded", "true")
-    document.body.style.overflow = "hidden"
-  }
-
-  const closeMobileMenu = () => {
-    mobileOverlay.classList.remove("is-active")
-    mobileToggle.setAttribute("aria-expanded", "false")
-    document.body.style.overflow = ""
-  }
-
-  window.addEventListener("scroll", handleScroll)
-
-  mobileToggle.addEventListener("click", openMobileMenu)
-  mobileClose.addEventListener("click", closeMobileMenu)
-
-  mobileLinks.forEach((link) => {
-    link.addEventListener("click", closeMobileMenu)
-  })
-
-  mobileOverlay.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener("click", closeMobileMenu)
-  })
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && mobileOverlay.classList.contains("is-active")) {
-      closeMobileMenu()
-    }
-  })
-
-  handleScroll()
-})()
-</script>`}
-            ></Script>
-          </div>
-        </div>
       </div>
       <style jsx>
         {`
           .navigation-container1 {
-            display: contents;
-          }
-          .navigation-container2 {
-            display: none;
-          }
-          .navigation-container3 {
-            display: contents;
-          }
-          .navigation-container4 {
-            display: none;
-          }
-          .navigation-container5 {
             display: contents;
           }
         `}

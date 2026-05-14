@@ -2,7 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 
 import Script from 'dangerous-html/react'
-import { useTranslations } from 'next-intl'
 
 import Navigation from '../components/navigation'
 import Footer from '../components/footer'
@@ -43,16 +42,16 @@ const Home = (props) => {
                 Experience the Super Move Magic!
               </h1>
               <p className="hero-subtitle">
-                Fast, friendly, and 3D-style moves that make relocation feel
-                like a breeze.
+                Fast, friendly moves with real super-powered care — relocation
+                that feels effortless.
               </p>
               <div className="floating-truck-visual">
                 <img
-                  src="/super-movers-logo.png"
-                  alt="Super Movers"
+                  src="/super-movers-badge.png"
+                  alt=""
                   className="hero-floating-logo"
                   width={560}
-                  height={280}
+                  height={640}
                   decoding="async"
                 />
               </div>

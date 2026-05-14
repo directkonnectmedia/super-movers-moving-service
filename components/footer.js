@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Script from 'dangerous-html/react'
-import { useTranslations } from 'next-intl'
 
 const Footer = (props) => {
   return (
@@ -10,11 +9,11 @@ const Footer = (props) => {
         <footer className="footer-root">
           <div className="footer-logo-hero">
             <img
-              src="/super-movers-logo.png"
-              alt="Super Movers"
+              src="/super-movers-badge.png"
+              alt=""
               className="footer-mark-logo"
-              width={480}
-              height={240}
+              width={360}
+              height={320}
               decoding="async"
             />
           </div>
