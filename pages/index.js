@@ -28,13 +28,14 @@ const Home = (props) => {
         <section className="hero-wizard-section">
           <div className="hero-video-wrapper">
             <video
-              src="https://videos.pexels.com/video-files/4246014/4246014-uhd_2560_1440_30fps.mp4"
+              src="/hero-moving-service.mp4"
               loop
               muted
               autoPlay
               playsInline
               preload="metadata"
               className="hero-bg-video"
+              style={{ objectFit: 'cover' }}
               aria-hidden="true"
             ></video>
             <div className="hero-overlay"></div>
