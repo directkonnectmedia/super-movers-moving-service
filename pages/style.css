@@ -1411,12 +1411,43 @@ html {
   color: var(--vibrant-mandarin);
 }
 
-#hero-quote-container .move-option-card label > div[class*="home-thq-move-option-content"] span {
-  color: var(--vibrant-mandarin);
+/* Step 1 — Home / Office: layered glass option cards */
+#hero-quote-container label.move-option-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition:
+    background 0.35s ease,
+    transform 0.18s ease,
+    border-color 0.25s ease,
+    box-shadow 0.3s ease;
 }
 
-#hero-quote-container .move-option-card label > div[class*="home-thq-move-option-content"] svg {
-  color: var(--electric-cobalt);
+#hero-quote-container label.move-option-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+#hero-quote-container label.move-option-card:active {
+  transform: scale(0.98);
+}
+
+#hero-quote-container .move-option-card > div[class*="home-thq-move-option-content"] span {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+#hero-quote-container .move-option-card > div[class*="home-thq-move-option-content"] svg {
+  color: #0052ff;
+}
+
+#hero-quote-container .move-option-card:has(input:checked) {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.88);
+  border-color: var(--electric-cobalt);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--electric-cobalt) 22%, transparent);
 }
  
 

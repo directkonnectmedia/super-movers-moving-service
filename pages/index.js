@@ -71,7 +71,7 @@ const Home = (props) => {
                   <div data-step="1" className="wizard-step active">
                     <h3 className="wizard-step-title">What are we moving?</h3>
                     <div className="move-type-grid">
-                      <label className="magnetic move-option-card">
+                      <label className="move-option-card">
                         <input
                           type="radio"
                           id="thq_movetype_iaTS"
@@ -98,7 +98,7 @@ const Home = (props) => {
                           <span>Home Move</span>
                         </div>
                       </label>
-                      <label className="magnetic move-option-card">
+                      <label className="move-option-card">
                         <input
                           type="radio"
                           id="thq_movetype_Hs0I"
