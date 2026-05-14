@@ -8,14 +8,16 @@ const Footer = (props) => {
       <div className="footer-container1">
         <footer className="footer-root">
           <div className="footer-logo-hero">
-            <img
-              src="/super-movers-badge.png"
-              alt=""
-              className="footer-mark-logo"
-              width={360}
-              height={320}
-              decoding="async"
-            />
+            <div className="badge-logo-infill badge-logo-infill--footer">
+              <img
+                src="/super-movers-badge.png"
+                alt=""
+                className="footer-mark-logo"
+                width={360}
+                height={320}
+                decoding="async"
+              />
+            </div>
           </div>
           <div className="footer-container">
             <div className="footer-main-grid">

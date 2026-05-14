@@ -85,18 +85,20 @@ const Navigation = () => {
           <div className="navigation-container">
             <a href="/" className="navigation-home-link" aria-label="Super Movers Home">
               <span className="navigation-brand navigation-brand--mark">
-                <motion.img
-                  className="navigation-brand-logo"
-                  src={BADGE_SRC}
-                  alt=""
-                  width={200}
-                  height={140}
-                  decoding="async"
-                  style={{
-                    height: logoHeight,
-                    marginBottom: logoPull,
-                  }}
-                />
+                <motion.div
+                  className="badge-logo-infill badge-logo-infill--nav"
+                  style={{ marginBottom: logoPull }}
+                >
+                  <motion.img
+                    className="navigation-brand-logo"
+                    src={BADGE_SRC}
+                    alt=""
+                    width={200}
+                    height={140}
+                    decoding="async"
+                    style={{ height: logoHeight }}
+                  />
+                </motion.div>
               </span>
             </a>
             <div className="navigation-desktop-menu">
@@ -175,14 +177,16 @@ const Navigation = () => {
               onClick={() => setMenuOpen(false)}
             >
               <span className="navigation-brand navigation-brand--mark">
-                <img
-                  className="navigation-overlay-brand-logo"
-                  src={BADGE_SRC}
-                  alt=""
-                  width={160}
-                  height={140}
-                  decoding="async"
-                />
+                <div className="badge-logo-infill badge-logo-infill--overlay">
+                  <img
+                    className="navigation-overlay-brand-logo"
+                    src={BADGE_SRC}
+                    alt=""
+                    width={160}
+                    height={140}
+                    decoding="async"
+                  />
+                </div>
               </span>
             </a>
             <button
