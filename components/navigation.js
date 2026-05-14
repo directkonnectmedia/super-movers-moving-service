@@ -86,7 +86,7 @@ const Navigation = () => {
             <a href="/" className="navigation-home-link" aria-label="Super Movers Home">
               <span className="navigation-brand navigation-brand--mark">
                 <motion.div
-                  className="badge-logo-infill badge-logo-infill--nav"
+                  className="logo-wrapper logo-wrapper--nav"
                   style={{ marginBottom: logoPull }}
                 >
                   <motion.img
@@ -177,7 +177,7 @@ const Navigation = () => {
               onClick={() => setMenuOpen(false)}
             >
               <span className="navigation-brand navigation-brand--mark">
-                <div className="badge-logo-infill badge-logo-infill--overlay">
+                <div className="logo-wrapper logo-wrapper--overlay">
                   <img
                     className="navigation-overlay-brand-logo"
                     src={BADGE_SRC}

@@ -46,14 +46,16 @@ const Home = (props) => {
                 that feels effortless.
               </p>
               <div className="floating-truck-visual">
-                <img
-                  src="/super-movers-badge.png"
-                  alt=""
-                  className="hero-floating-logo"
-                  width={560}
-                  height={640}
-                  decoding="async"
-                />
+                <div className="logo-wrapper logo-wrapper--hero">
+                  <img
+                    src="/super-movers-badge.png"
+                    alt=""
+                    className="hero-floating-logo"
+                    width={560}
+                    height={640}
+                    decoding="async"
+                  />
+                </div>
               </div>
             </div>
             <div id="hero-quote-container" className="wizard-card-wrapper">

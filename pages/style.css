@@ -815,6 +815,9 @@ html {
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
+  min-width: clamp(118px, 22vw, 172px);
+  justify-content: flex-start;
 }
 
 .navigation-brand {
@@ -830,25 +833,48 @@ html {
   padding: 0;
 }
 
-/* White plate behind transparent badge artwork (PNG in-fill restoration) */
-.badge-logo-infill {
+/* Badge PNG in-fill: white only where art is transparent — no outer square plate */
+.logo-wrapper {
+  position: relative;
   display: inline-block;
   line-height: 0;
-  background: #ffffff;
-  overflow: hidden;
   vertical-align: top;
-  /* Top ~circle (~58–62%), lower shield/body narrower — single rounded clip */
-  border-radius: 50% 50% 18% 18% / 44% 44% 26% 26%;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  isolation: isolate;
+  flex-shrink: 0;
 }
 
-.badge-logo-infill img {
+.logo-wrapper img {
   display: block;
   position: relative;
   z-index: 1;
+  filter:
+    drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))
+    drop-shadow(0 0 1px rgb(255, 255, 255))
+    drop-shadow(0 0 1px rgb(255, 255, 255));
 }
 
-.badge-logo-infill--footer {
+.logo-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #ffffff;
+  z-index: -1;
+  clip-path: circle(45% at 50% 35%);
+}
+
+.logo-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 42%;
+  bottom: 8%;
+  background: #ffffff;
+  z-index: -1;
+  clip-path: polygon(11% 0%, 89% 0%, 72% 100%, 28% 100%);
+}
+
+.logo-wrapper--footer {
   display: block;
   width: 180px;
   max-width: 180px;
@@ -856,8 +882,22 @@ html {
   margin-right: auto;
 }
 
-.badge-logo-infill--footer .footer-mark-logo {
+.logo-wrapper--footer .footer-mark-logo {
   width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.logo-wrapper--hero {
+  display: block;
+  width: fit-content;
+  max-width: min(100%, 280px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-wrapper--hero .hero-floating-logo {
+  width: min(100%, 280px);
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;
@@ -1166,11 +1206,9 @@ html {
 }
 
 .footer-mark-logo {
-  width: 180px;
-  max-width: 180px;
+  width: 100%;
+  max-width: 100%;
   height: auto;
-  margin-left: auto;
-  margin-right: auto;
   display: block;
   object-fit: contain;
 }
@@ -1413,13 +1451,9 @@ html {
   border-radius: 0;
   box-shadow: none;
   display: block;
-  width: min(100%, 280px);
   height: auto;
-  margin-left: auto;
-  margin-right: auto;
   max-height: min(52vh, 440px);
   object-fit: contain;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
 .wizard-container {
