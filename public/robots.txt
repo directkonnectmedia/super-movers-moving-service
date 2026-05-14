@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://pink-feminine-louse-4bqc9w.teleporthq.site/sitemap.xml
