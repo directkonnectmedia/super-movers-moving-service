@@ -69,7 +69,7 @@ const Navigation = (props) => {
                 </li>
               </ul>
               <a href="#hero-quote-container">
-                <div className="btn navigation-cta navigation-cta-quote nav-solar-quote btn-lg">
+                <div className="btn navigation-cta navigation-cta-quote nav-mandarin-quote btn-lg">
                   <span>Get Quote</span>
                 </div>
               </a>
@@ -185,7 +185,7 @@ const Navigation = (props) => {
             </ul>
             <div className="navigation-mobile-actions">
               <a href="#hero-quote-container">
-                <div className="btn btn-xl navigation-mobile-cta navigation-cta-quote nav-solar-quote">
+                <div className="btn btn-xl navigation-mobile-cta navigation-cta-quote nav-mandarin-quote">
                   <span>Get Quote</span>
                 </div>
               </a>

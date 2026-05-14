@@ -16,7 +16,7 @@
   --font-size-xl: clamp(1.25rem, 1.35rem, 1.5rem);
   --font-size-xs: clamp(0.75rem, 0.8rem, 0.85rem);
   --super-yellow: #ffd600;
-  --solar-orange: #f97316;
+  --vibrant-mandarin: #ff9f43;
   --color-neutral: #cbd5e1;
   --color-outline: #7dd3fc;
   --color-overlay: color-mix(in oklab, #000000 40%, transparent);
@@ -999,28 +999,28 @@ html {
   width: 100%;
 }
  
-.navigation-cta.nav-solar-quote,
-.navigation-mobile-cta.nav-solar-quote {
+.navigation-cta.nav-mandarin-quote,
+.navigation-mobile-cta.nav-mandarin-quote {
   color: var(--color-on-accent);
-  border-color: var(--solar-orange);
-  background-color: var(--solar-orange);
-  box-shadow: 0 4px 15px color-mix(in srgb, var(--solar-orange) 35%, transparent);
+  border-color: var(--vibrant-mandarin);
+  background-color: var(--vibrant-mandarin);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--vibrant-mandarin) 35%, transparent);
 }
 
-.navigation-cta.nav-solar-quote:hover:not(:disabled),
-.navigation-mobile-cta.nav-solar-quote:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--solar-orange) 88%, #000);
-  background-color: color-mix(in srgb, var(--solar-orange) 88%, #000);
+.navigation-cta.nav-mandarin-quote:hover:not(:disabled),
+.navigation-mobile-cta.nav-mandarin-quote:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--vibrant-mandarin) 88%, #000);
+  background-color: color-mix(in srgb, var(--vibrant-mandarin) 88%, #000);
 }
 
 .navigation-cta-quote:hover:not(:disabled) {
   animation: navigation-quote-hover-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--solar-orange) 45%, transparent) !important;
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--vibrant-mandarin) 45%, transparent) !important;
 }
 
 .navigation-mobile-cta.navigation-cta-quote:hover:not(:disabled) {
   animation: navigation-quote-hover-bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 8px 25px color-mix(in srgb, var(--solar-orange) 45%, transparent) !important;
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--vibrant-mandarin) 45%, transparent) !important;
 }
  
 .navigation-mobile-overlay.is-active {
@@ -1055,7 +1055,7 @@ html {
   color: var(--footer-fg);
   overflow: hidden;
   position: relative;
-  border-top: 8px solid var(--solar-orange);
+  border-top: 8px solid var(--vibrant-mandarin);
   padding-top: var(--spacing-4xl);
   padding-bottom: var(--spacing-2xl);
   background-color: var(--theme-sky);
@@ -1097,11 +1097,10 @@ html {
 }
  
 .footer-copyright {
-  color: var(--solar-orange);
+  color: #ffffff;
   opacity: 1;
   font-size: var(--font-size-sm);
   font-weight: 600;
-  text-shadow: 0 1px 1px color-mix(in srgb, #0f172a 28%, transparent);
 }
  
 .footer-legal-links {
@@ -1133,7 +1132,7 @@ html {
 }
  
 .footer-col-title {
-  color: var(--color-accent);
+  color: #ffffff;
   font-size: var(--font-size-base);
   margin-bottom: var(--spacing-xl);
   letter-spacing: 0.1em;
@@ -1155,11 +1154,10 @@ html {
 }
  
 .footer-link-sm {
-  color: var(--solar-orange);
+  color: #ffffff;
   opacity: 1;
   font-size: var(--font-size-sm);
   font-weight: 600;
-  text-shadow: 0 1px 1px color-mix(in srgb, #0f172a 24%, transparent);
   transition: opacity 0.3s ease, color 0.2s ease;
   text-decoration: none;
 }
@@ -1280,7 +1278,7 @@ html {
 }
  
 .footer-link-sm:hover {
-  color: color-mix(in srgb, var(--solar-orange) 70%, var(--footer-fg));
+  color: color-mix(in srgb, #ffffff 88%, var(--theme-sky));
   opacity: 1;
   text-decoration: underline;
 }
@@ -1367,20 +1365,20 @@ html {
   flex-direction: column;
 }
 
-/* Quote wizard: Solar Orange focus + button/option text; icons stay cobalt */
+/* Quote wizard: Vibrant Mandarin focus + option text; primary forward buttons white; icons cobalt */
 #hero-quote-container .btn:focus-visible,
 #hero-quote-container input:focus-visible,
 #hero-quote-container textarea:focus-visible {
-  outline: 2px solid var(--solar-orange);
+  outline: 2px solid #ff9f43;
   outline-offset: 2px;
 }
 
 #hero-quote-container .btn-primary {
-  color: var(--solar-orange);
+  color: #ffffff;
 }
 
 #hero-quote-container .btn-outline {
-  color: var(--solar-orange);
+  color: var(--vibrant-mandarin);
 }
 
 #hero-quote-container .btn-outline:hover:not(:disabled) {
@@ -1388,30 +1386,30 @@ html {
 }
 
 #hero-quote-container .btn-link {
-  color: var(--solar-orange);
+  color: var(--vibrant-mandarin);
 }
 
 #hero-quote-container .btn-link:hover:not(:disabled) {
-  color: color-mix(in srgb, var(--solar-orange) 72%, #0f172a);
+  color: color-mix(in srgb, var(--vibrant-mandarin) 72%, #0f172a);
 }
 
 #hero-quote-container .btn-accent {
-  color: var(--solar-orange);
+  color: var(--vibrant-mandarin);
   background-color: var(--color-surface);
-  border: 2px solid var(--solar-orange);
+  border: 2px solid var(--vibrant-mandarin);
 }
 
 #hero-quote-container .btn-accent:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--solar-orange) 82%, #000);
-  background-color: color-mix(in srgb, var(--solar-orange) 14%, var(--color-surface));
+  border-color: color-mix(in srgb, var(--vibrant-mandarin) 82%, #000);
+  background-color: color-mix(in srgb, var(--vibrant-mandarin) 14%, var(--color-surface));
 }
 
 #hero-quote-container .bubble-option:not(:has(input:checked)) {
-  color: var(--solar-orange);
+  color: var(--vibrant-mandarin);
 }
 
 #hero-quote-container .move-option-card label > div[class*="home-thq-move-option-content"] span {
-  color: var(--solar-orange);
+  color: var(--vibrant-mandarin);
 }
 
 #hero-quote-container .move-option-card label > div[class*="home-thq-move-option-content"] svg {

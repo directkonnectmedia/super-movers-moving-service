@@ -27,12 +27,13 @@ const Home = (props) => {
         <section className="hero-wizard-section">
           <div className="hero-video-wrapper">
             <video
-              src="https://videos.pexels.com/video-files/7464151/7464151-hd_1920_1080_30fps.mp4"
+              src="https://assets.mixkit.co/videos/15853/15853-720.mp4"
               loop="true"
               muted="true"
               autoPlay="true"
               playsInline="true"
               className="hero-bg-video"
+              aria-hidden="true"
             ></video>
             <div className="hero-overlay-scrim"></div>
           </div>
@@ -47,7 +48,8 @@ const Home = (props) => {
               </p>
               <div className="floating-truck-visual">
                 <img
-                  alt="Super Movers Truck"
+                  data-brand-logo-slot="marketing"
+                  alt="Super Movers marketing image — replace src with your logo asset when ready"
                   src="https://images.pexels.com/photos/9115461/pexels-photo-9115461.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
                   className="truck-3d-image"
                 />
