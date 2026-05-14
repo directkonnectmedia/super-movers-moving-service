@@ -9,33 +9,17 @@ const Navigation = (props) => {
       <div className="navigation-container1">
         <nav id="navigation-root" className="navigation-root">
           <div className="navigation-container">
-            <a href="/">
-              <div aria-label="Super Movers Home" className="navigation-brand">
-                <div className="navigation-logo-wrapper">
-                  <svg
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    className="navigation-logo-icon"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2m10 0H9m10 0h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
-                      <circle r="2" cx="17" cy="18"></circle>
-                      <circle r="2" cx="7" cy="18"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <span className="navigation-brand-name section-title">
-                  Super Movers
-                </span>
-              </div>
+            <a href="/" className="navigation-home-link" aria-label="Super Movers Home">
+              <span className="navigation-brand navigation-brand--mark">
+                <img
+                  className="navigation-brand-logo"
+                  src="/super-movers-logo.png"
+                  alt=""
+                  width={320}
+                  height={80}
+                  decoding="async"
+                />
+              </span>
             </a>
             <div className="navigation-desktop-menu">
               <ul className="navigation-links">
@@ -101,33 +85,17 @@ const Navigation = (props) => {
         </nav>
         <div id="mobile-overlay" className="navigation-mobile-overlay">
           <div className="navigation-overlay-header">
-            <a href="/">
-              <div aria-label="Super Movers Home" className="navigation-brand">
-                <div className="navigation-logo-wrapper">
-                  <svg
-                    width="32"
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    className="navigation-logo-icon"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2m10 0H9m10 0h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path>
-                      <circle r="2" cx="17" cy="18"></circle>
-                      <circle r="2" cx="7" cy="18"></circle>
-                    </g>
-                  </svg>
-                </div>
-                <span className="navigation-brand-name section-title">
-                  Super Movers
-                </span>
-              </div>
+            <a href="/" className="navigation-home-link" aria-label="Super Movers Home">
+              <span className="navigation-brand navigation-brand--mark">
+                <img
+                  className="navigation-brand-logo"
+                  src="/super-movers-logo.png"
+                  alt=""
+                  width={320}
+                  height={80}
+                  decoding="async"
+                />
+              </span>
             </a>
             <button
               id="mobile-close"
@@ -197,7 +165,7 @@ const Navigation = (props) => {
             <Script
               html={`<style>
 @media (prefers-reduced-motion: reduce) {
-.navigation-root, .navigation-mobile-overlay, .navigation-mobile-link, .navigation-cta, .navigation-cta-quote {
+.navigation-root, .navigation-mobile-overlay, .navigation-mobile-link, .navigation-cta, .navigation-cta-quote, .navigation-brand-logo {
   transition: none !important;
   animation: none !important;
   transform: none !important;
@@ -221,8 +189,10 @@ const Navigation = (props) => {
   const handleScroll = () => {
     if (window.scrollY > 50) {
       navRoot.classList.add("is-scrolled")
+      document.documentElement.classList.add("nav-scrolled")
     } else {
       navRoot.classList.remove("is-scrolled")
+      document.documentElement.classList.remove("nav-scrolled")
     }
   }
 

@@ -48,10 +48,12 @@ const Home = (props) => {
               </p>
               <div className="floating-truck-visual">
                 <img
-                  data-brand-logo-slot="marketing"
-                  alt="Super Movers marketing image — replace src with your logo asset when ready"
-                  src="https://images.pexels.com/photos/9115461/pexels-photo-9115461.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1500"
-                  className="truck-3d-image"
+                  src="/super-movers-logo.png"
+                  alt="Super Movers"
+                  className="hero-floating-logo"
+                  width={560}
+                  height={280}
+                  decoding="async"
                 />
               </div>
             </div>
